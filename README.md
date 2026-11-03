@@ -8,6 +8,10 @@ A desk for thinking with an AI: leave a question on the left page and watch a br
 
 Skeuomo-DSH is an independent interface project built on [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness). Three.js renders the desk, lighting, paper, and mechanical pen; Harness supplies real sessions, model streaming, credentials, and tool execution. The desk controls and handwriting prompts are currently in Chinese.
 
+We built this Harness as a tribute to [DEsk](https://github.com/fyzugx/DEsk), a Linux desktop environment that takes skeuomorphism all the way.
+
+This Harness is pretty damn useless and painfully inefficient. But it is skeuomorphic, and it looks great. You're welcome to try it; just don't expect it to be particularly practical.
+
 ## At the desk
 
 - **Write and receive.** Type on the left page, press the delivery lever or Cmd/Ctrl+Enter, and read the reply on the right. Chinese characters follow local stroke data; Latin letters follow hand-drawn paths.

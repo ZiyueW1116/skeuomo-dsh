@@ -8,6 +8,10 @@
 
 Skeuomo-DSH 是基于 [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) 开发的独立界面项目。Three.js 绘制书桌、灯光、纸张和机械笔；Harness 提供真实会话、模型流式回复、凭据管理和工具执行。书桌控件与手写提示目前使用中文。
 
+我们做这个 Harness，是为了致敬 [DEsk](https://github.com/fyzugx/DEsk)：一个追求彻底拟物化的 Linux 桌面环境。
+
+这个 Harness 其实屁用都没有，而且效率奇低。但它确实是一个拟物的 Harness，而且很好看。欢迎试用它，但请不要指望它真的很实用。
+
 ## 在书桌前
 
 - **写信与收信。** 轻触左页输入，按下交稿杆或 Cmd/Ctrl+Enter，右页逐笔呈现回信。中文沿本地笔顺落墨，拉丁字母沿手绘轨迹书写。

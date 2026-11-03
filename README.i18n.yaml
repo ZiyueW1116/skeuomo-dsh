@@ -3,8 +3,8 @@
 # After editing either side, bring the other along and re-record with:
 #   pnpm run verify-translation-pairing --write README.md
 /skeuomo-dsh:
-  en: b25c3b3b08023923
-  zh: 9267c74b5cde296f
+  en: 65b1fa7db3ae7d5f
+  zh: 6913d398130e2e95
 /skeuomo-dsh/at-the-desk:
   en: 3dd6c57345015d3c
   zh: 9e1ed8436a9f802a

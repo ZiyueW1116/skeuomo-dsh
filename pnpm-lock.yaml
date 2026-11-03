@@ -8403,8 +8403,8 @@ importers:
         specifier: link:../../../vendor/schemastery
         version: link:../../../vendor/schemastery
       '@trycua/cua-driver':
-        specifier: 0.28.0
-        version: 0.28.0
+        specifier: 0.33.1
+        version: 0.33.1
       zod:
         specifier: 4.4.3
         version: 4.4.3
@@ -18768,6 +18768,7 @@ packages:
   '@smithy/core@3.35.0':
     resolution: {integrity: sha512-zRMhfkByhT2snNdr1si24vJitU6Cr9ix2MikUfWmkAgp4jrNP0GcKSP5YvwQ+TlI8AZXER5QOGJn3JsVtSD9/A==}
     engines: {node: '>=18.0.0'}
+    deprecated: Deprecated due to a bug in custom logger data redaction. See https://github.com/aws/aws-sdk-js-v3/issues/8393.
 
   '@smithy/credential-provider-imds@4.5.2':
     resolution: {integrity: sha512-A9uSdn72ozbRUSit0eib0TW7nXuNPlaeM0zcGkJ+nE6tFcSDbnmtwoxbTCFBukVQcszDAyvsd7+rTduPTXpygg==}
@@ -18836,40 +18837,40 @@ packages:
       '@types/react-dom':
         optional: true
 
-  '@trycua/cua-driver-darwin-arm64@0.28.0':
-    resolution: {integrity: sha512-T6xvOlCph5uropetrH6tNTvg5ipN9FUzV1n28gNJ1LYoNT3fsqnQUpCRMavlAui/zYkyMqCMaBUqBcfZLA+SnA==}
+  '@trycua/cua-driver-darwin-arm64@0.33.1':
+    resolution: {integrity: sha512-rEGhMSp2gpayNXbiyVRFah63IArQjKj0ay6bW2xrmioFgrGzdvOODjA87qHu9NeDzC3U9e2eUWlD9rDOtucjFg==}
     cpu: [arm64]
     os: [darwin]
 
-  '@trycua/cua-driver-darwin-x64@0.28.0':
-    resolution: {integrity: sha512-8lBtyiTfMOGmEklNY4GHu5SedfxYbg43FjLpPUmKLSVF98+opyQ1bsyI7A7VlfUBW4hdwEBDLtzZnpZqepN9ZA==}
+  '@trycua/cua-driver-darwin-x64@0.33.1':
+    resolution: {integrity: sha512-SX9BXQDBSdCV/4ryu630CfiFIs5+LkERoDnjj9lvzIm0TpHbdGDxiB2Ron38TTH/9HNqGoWeERolMswKlvGvVg==}
     cpu: [x64]
     os: [darwin]
 
-  '@trycua/cua-driver-linux-arm64-gnu@0.28.0':
-    resolution: {integrity: sha512-/sDRM2vUQUA5FY3y3VAOxe0I5U1UHfhDUY3EfvGhASrHteefMVh+Wo8teebcto5TgVjiw4P41YdoTFBFWR3w4g==}
+  '@trycua/cua-driver-linux-arm64-gnu@0.33.1':
+    resolution: {integrity: sha512-NS6vgw4J1k6FG/YSCt1aQLyrtbn8+DDnZIAl8yYb3lU2dtjL38ujjkOMWQYJdOKLsONdiwRJM+QIE+c9Q98kEQ==}
     cpu: [arm64]
     os: [linux]
     libc: [glibc]
 
-  '@trycua/cua-driver-linux-x64-gnu@0.28.0':
-    resolution: {integrity: sha512-2rEldOcNy+CT7re2pnIEfMW1c4wCoaLqhv8hoqBRK5gHn3UJTJPaxvo35tKSuIJAAQ/GMawCHCl9WvjY+W2ysw==}
+  '@trycua/cua-driver-linux-x64-gnu@0.33.1':
+    resolution: {integrity: sha512-oO4uiGeMt9B0SEtqSeOH1fjnB9MwTpuGi7gsCOMlI5CRZKO5yNI6JgTAlYrQICUj6zPwRML/YJ/WJTJA8WQ0sg==}
     cpu: [x64]
     os: [linux]
     libc: [glibc]
 
-  '@trycua/cua-driver-win32-arm64-msvc@0.28.0':
-    resolution: {integrity: sha512-7cbX5v7xyCdGK3KuwPbMKlIuIUjKkKFuGgdPsCl7qZHLv+PQC5f7FrDFl8hFG3YNKvjoyan5ufus0AoTCcmp5w==}
+  '@trycua/cua-driver-win32-arm64-msvc@0.33.1':
+    resolution: {integrity: sha512-kXUewJKMGN5T/vEU+XHAZyFSB9KEcS3W62WMy8fY3t23TqO0OkpVvmNpc5HsV6sfxeAxlfgXMeCt4OUl0xkXVQ==}
     cpu: [arm64]
     os: [win32]
 
-  '@trycua/cua-driver-win32-x64-msvc@0.28.0':
-    resolution: {integrity: sha512-tTWcGIGUCZ/k+mbcdh/4VmehsELp12M/tUj59XQSW97lFwrMSSIUypZ84LAEO+CEBdK9NQBRKO2pMBTH6aakEQ==}
+  '@trycua/cua-driver-win32-x64-msvc@0.33.1':
+    resolution: {integrity: sha512-4ruq91+UJqPQPvwmMB2CHJLFXratdRg2M3Sj4XASJrz0E1exbsG7sGxxPwqcIJ5pAJlXDe5LJtXDZfM84SH21A==}
     cpu: [x64]
     os: [win32]
 
-  '@trycua/cua-driver@0.28.0':
-    resolution: {integrity: sha512-n3ArFsQ9RzNQIiYpHJEjTGLIPPpnqXDJRp0sevRcrRThAG3H2Fh/gWooEb9k4ba3rNSAohUoPiG/EbdKLF1WRw==}
+  '@trycua/cua-driver@0.33.1':
+    resolution: {integrity: sha512-Hp3bBOgQenBcvYJ1amOMq17ltW5l4BEH8R6bZAYkedkrmkT3Hk2FEgsUqLokBpawMB2xL1ud6q1xk/RJ7ZEysg==}
 
   '@tweenjs/tween.js@23.1.3':
     resolution: {integrity: sha512-vJmvvwFxYuGnF2axRtPYocag6Clbb5YS7kLL+SO/TeVFzHqDIWrNKYtcsPMibjDx9O+bu+psAy9NKfWklassUA==}
@@ -19526,11 +19527,6 @@ packages:
 
   ajv-formats@3.0.1:
     resolution: {integrity: sha512-8iUql50EUR+uUcdRQ3HDqa6EVyo3docL8g5WJ3FNcWmu62IbkGUue/pEyLBW8VGKKucTPgqeks4fIU1DA4yowQ==}
-    peerDependencies:
-      ajv: ^8.0.0
-    peerDependenciesMeta:
-      ajv:
-        optional: true
 
   ajv@6.15.0:
     resolution: {integrity: sha512-fgFx7Hfoq60ytK2c7DhnF8jIvzYgOMxfugjLOSMHjLIPgenqa7S7oaagATUq99mV6IYvN2tRmC0wnTYX6iPbMw==}
@@ -25296,7 +25292,7 @@ snapshots:
     dependencies:
       '@hono/node-server': 1.19.17(hono@4.13.7)
       ajv: 8.20.0
-      ajv-formats: 3.0.1(ajv@8.20.0)
+      ajv-formats: 3.0.1
       content-type: 1.0.5
       cors: 2.8.6
       cross-spawn: 7.0.6
@@ -26070,35 +26066,35 @@ snapshots:
       '@types/react': 18.3.31
       '@types/react-dom': 18.3.7(@types/react@18.3.31)
 
-  '@trycua/cua-driver-darwin-arm64@0.28.0':
+  '@trycua/cua-driver-darwin-arm64@0.33.1':
     optional: true
 
-  '@trycua/cua-driver-darwin-x64@0.28.0':
+  '@trycua/cua-driver-darwin-x64@0.33.1':
     optional: true
 
-  '@trycua/cua-driver-linux-arm64-gnu@0.28.0':
+  '@trycua/cua-driver-linux-arm64-gnu@0.33.1':
     optional: true
 
-  '@trycua/cua-driver-linux-x64-gnu@0.28.0':
+  '@trycua/cua-driver-linux-x64-gnu@0.33.1':
     optional: true
 
-  '@trycua/cua-driver-win32-arm64-msvc@0.28.0':
+  '@trycua/cua-driver-win32-arm64-msvc@0.33.1':
     optional: true
 
-  '@trycua/cua-driver-win32-x64-msvc@0.28.0':
+  '@trycua/cua-driver-win32-x64-msvc@0.33.1':
     optional: true
 
-  '@trycua/cua-driver@0.28.0':
+  '@trycua/cua-driver@0.33.1':
     dependencies:
       '@ubjs/core': 0.31.0-3
       '@ubjs/node': 0.31.0-3
     optionalDependencies:
-      '@trycua/cua-driver-darwin-arm64': 0.28.0
-      '@trycua/cua-driver-darwin-x64': 0.28.0
-      '@trycua/cua-driver-linux-arm64-gnu': 0.28.0
-      '@trycua/cua-driver-linux-x64-gnu': 0.28.0
-      '@trycua/cua-driver-win32-arm64-msvc': 0.28.0
-      '@trycua/cua-driver-win32-x64-msvc': 0.28.0
+      '@trycua/cua-driver-darwin-arm64': 0.33.1
+      '@trycua/cua-driver-darwin-x64': 0.33.1
+      '@trycua/cua-driver-linux-arm64-gnu': 0.33.1
+      '@trycua/cua-driver-linux-x64-gnu': 0.33.1
+      '@trycua/cua-driver-win32-arm64-msvc': 0.33.1
+      '@trycua/cua-driver-win32-x64-msvc': 0.33.1
 
   '@tweenjs/tween.js@23.1.3': {}
 
@@ -26830,8 +26826,8 @@ snapshots:
     dependencies:
       humanize-ms: 1.2.1
 
-  ajv-formats@3.0.1(ajv@8.20.0):
-    optionalDependencies:
+  ajv-formats@3.0.1:
+    dependencies:
       ajv: 8.20.0
 
   ajv@6.15.0:

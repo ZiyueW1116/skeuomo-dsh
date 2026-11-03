@@ -1,7 +1,7 @@
-# AGENTS.md — GitHub Actions
+# GitHub Actions
 
-Run jobs on Windows runners (`windows-*` labels) under native `pwsh`. Native Windows build and process checks contribute to the pull-request `all checks passed` verdict; Wine runs Windows Node on hosted Linux only in `ci-master.yml`. Python runtime CI checks Linux/Windows x64 on pull requests and Linux ARM64 plus both macOS architectures on master pushes; releases retain all five targets ([platform policy](workflows/ci-master.yml)). `ci.yml` is pull-request-only. Master-only platform checks, Linux/Windows self-hosted standbys, and manual runner benchmarks live in `ci-master.yml`, which listens to master pushes and `workflow_dispatch`, not `pull_request`; separating workflow triggers keeps master-only jobs out of PR check panels. The master standbys validate the self-hosted failover targets; preserve the existing per-platform switches (values `selfhosted` for the in-house standbys and `blacksmith` for Blacksmith's hosted runners) and the Dependabot hosted fallback under the `selfhosted` values ([failover runbook](../.agents/notes/implemented/process/2026-07-26-ci-failover-runbook.md), [blacksmith failover leg note](../.agents/notes/implemented/process/2026-09-09-blacksmith-failover-leg.md)).
+本项目只维护 macOS 前端。唯一的 [CI 工作流](workflows/ci.yml) 在 `main` 推送、拉取请求和手动触发时使用 GitHub 托管的 macOS 运行器与 Node 24，检查构建、文档、界面、书桌回放和本机窗口。
 
-The manual [Windows packaging workflow](workflows/windows-package.yml) uses the dedicated self-hosted Windows x64 label `dsh-win-package-trial` under native `pwsh`; preserve this routing separately from the automatic CI lanes.
+工作流保持只读仓库权限，不依赖模型密钥、上游私有运行器或发布凭据。依赖版本从锁文件安装。构建后的测试先等待构建完成；真实模型测试由维护者在本地显式运行。
 
-The manual Desktop publication workflow selects a successful package run and attempt, then routes each retained build through `DESKTOP_PUBLISH_RUNNERS` to its original machine's unique label. Keep Windows run steps on native PowerShell and Mac run steps on the default POSIX shell; shared entrypoints are Node scripts. Test and production jobs use separate `desktop-test` and `desktop-production` approval Environments after a credential-free preparation job.
+上游为 [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness)。保留原始提交历史、版权和 README 署名；不启用上游的 Dependabot、多平台兼容性矩阵或发布流水线。

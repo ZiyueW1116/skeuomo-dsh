@@ -10,6 +10,8 @@ Python SDK 单元测试驱动 fake peer，而打包运行时工作流可以在�
 
 ## Decision
 
+本记录中的 CI 与发布流程引用指向上游 DeepSeek Harness。本项目的检查范围以 [macOS CI](../../../../.github/workflows/ci.yml) 为准。
+
 ### 安装产物边界
 
 必需的 Python 运行时工作流先构建纯 SDK wheel 包与各平台运行时 wheel 包，再进行行为测试。每个原生目标都把这两个本地文件安装进新的 Python 3.10 虚拟环境，切换到仓库外的临时目录，清除 `PYTHONPATH` 与 `DSH_RUNTIME_MODE`，并且只调用公开 Python 模块与打包后的可执行文件。
@@ -30,7 +32,7 @@ Fork 与 Dependabot 拉取请求永远不会获得仓库密钥。它们的原生
 
 ### 必需目标
 
-拉取请求的 `python-runtime` job 针对 Linux x64 与 Windows x64 调用可复用构建器；master 推送根据[仅 master 平台策略](../../../../.github/workflows/ci-master.yml)选择 Linux arm64 与两种 macOS 架构。其聚合结果仍是 `all checks passed` 的依赖项，因此任一原生载体失败、取消或缺失都会阻止必需判定通过。[sdk-runtime README](../../../../python/sdk-runtime/README.zh.md) 负责 Windows 目标及其 PowerShell 专属极简快照。
+拉取请求的 `python-runtime` job 针对 Linux x64 与 Windows x64 调用可复用构建器；master 推送根据[仅 master 平台策略](https://github.com/deepseek-ai/deepseek-harness/blob/master/.github/workflows/ci-master.yml)选择 Linux arm64 与两种 macOS 架构。其聚合结果仍是 `all checks passed` 的依赖项，因此任一原生载体失败、取消或缺失都会阻止必需判定通过。[sdk-runtime README](../../../../python/sdk-runtime/README.zh.md) 负责 Windows 目标及其 PowerShell 专属极简快照。
 
 ## Existing decisions and supersession
 

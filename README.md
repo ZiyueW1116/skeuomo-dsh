@@ -57,7 +57,7 @@ The wrapper starts its own loopback Harness server and stops it when the window 
 
 The desk uses Harness's `~/.dsh` Web profile and shares its session and credential stores. Web and Desktop model configuration are separate. The scene and fonts load locally; online conversations send requests to the configured model provider. Review the [Harness safety notice](SAFETY.md) before allowing tool execution against a working directory.
 
-This is an experimental desktop-oriented interface. It displays text as handwriting, including Markdown source; it does not provide the upstream rich tool cards, attachment workflow, plugin panels, or complete settings UI. Traditional sidebar and overlay contributions are not mounted. Small screens and touch input are not the primary target. Windows and Linux can use the browser build, but the native wrapper is macOS-only.
+This is an experimental desktop-oriented interface. It displays text as handwriting, including Markdown source; it does not provide the upstream rich tool cards, attachment workflow, plugin panels, or complete settings UI. Traditional sidebar and overlay contributions are not mounted. Small screens and touch input are not the primary target. macOS is the maintained and CI-validated target; other operating systems are not covered by compatibility checks.
 
 ## Development
 
@@ -78,10 +78,12 @@ pnpm exec vitest run --config vitest.web.config.ts apps/web/tests/study-desk.e2e
 pnpm exec vitest run --config vitest.web.perf.config.ts apps/web/tests/study-render.perf.ts
 ```
 
+The [CI workflow](.github/workflows/ci.yml) checks the macOS build, code, documentation, GUI, desk replay, and native window on Node 24.
+
 The desk browser tests replay model responses through the real Harness conversation stream and require no API key. The performance diagnostic prints frame timing and heap measurements for the current machine; it does not establish a cross-device performance guarantee. Use [this repository's issues](https://github.com/ZiyueW1116/skeuomo-dsh/issues) for desk-specific bugs and contributions.
 
 ## Credits and license
 
-[DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) by DeepSeek AI provides the agent runtime and plugin architecture, powered by [Cordis](https://github.com/cordiverse/cordis). [DEsk](https://github.com/fyzugx/DEsk) is the visual reference for the study; this project's scene models are generated in code. This repository is maintained independently of DeepSeek AI.
+[DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) by DeepSeek AI provides the agent runtime and plugin architecture, powered by [Cordis](https://github.com/cordiverse/cordis). [DEsk](https://github.com/fyzugx/DEsk) is the visual reference for the study; this project's scene models are generated in code. Skeuomo-DSH is a derivative of DeepSeek Harness and retains its upstream Git history and copyright notices. This repository is maintained independently of DeepSeek AI.
 
 Code is released under [MIT](LICENSE), retaining upstream copyright notices. Fonts, stroke data, and material assets retain their own licenses; see [study asset credits](apps/web/public/study/CREDITS.md) and [third-party software notices](THIRD_PARTY_NOTICES.md).

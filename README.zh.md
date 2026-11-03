@@ -57,7 +57,7 @@ open ../深潜书桌.app
 
 书桌使用 Harness 的 `~/.dsh` Web profile，共享会话与凭据库。Web 和 Desktop 的模型配置彼此独立。场景和字体从本地加载；在线对话会向配置的模型服务商发出请求。在允许工具操作工作目录前，请阅读 [Harness 安全说明](SAFETY.zh.md)。
 
-这是面向桌面设备的实验界面。正文以手写文本显示，Markdown 标记也按原文书写；上游的富工具卡片、附件操作、插件面板和完整设置界面尚未接入书桌。传统侧栏与悬浮层不挂载。小屏幕与触摸操作并非主要适配目标。Windows 和 Linux 可使用浏览器构建，原生窗口仅支持 macOS。
+这是面向桌面设备的实验界面。正文以手写文本显示，Markdown 标记也按原文书写；上游的富工具卡片、附件操作、插件面板和完整设置界面尚未接入书桌。传统侧栏与悬浮层不挂载。小屏幕与触摸操作并非主要适配目标。macOS 是本项目维护并在 CI 中验证的平台；其他操作系统不在兼容性检查范围内。
 
 ## 开发
 
@@ -78,10 +78,12 @@ pnpm exec vitest run --config vitest.web.config.ts apps/web/tests/study-desk.e2e
 pnpm exec vitest run --config vitest.web.perf.config.ts apps/web/tests/study-render.perf.ts
 ```
 
+[CI 工作流](.github/workflows/ci.yml) 在 macOS 与 Node 24 上检查构建、代码、文档、界面、书桌回放和原生窗口。
+
 书桌浏览器测试通过真实 Harness 会话流回放模型回复，无需 API Key。性能诊断输出当前机器的帧间隔和堆内存测量，不代表所有设备的性能保证。书桌相关的问题与贡献请提交到[本仓库 Issues](https://github.com/ZiyueW1116/skeuomo-dsh/issues)。
 
 ## 致谢与许可证
 
-DeepSeek AI 的 [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) 提供智能体运行时与插件架构，底层由 [Cordis](https://github.com/cordiverse/cordis) 驱动。[DEsk](https://github.com/fyzugx/DEsk) 是书房视觉参考，本项目的场景模型由代码生成。本仓库由独立维护者维护。
+DeepSeek AI 的 [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) 提供智能体运行时与插件架构，底层由 [Cordis](https://github.com/cordiverse/cordis) 驱动。[DEsk](https://github.com/fyzugx/DEsk) 是书房视觉参考，本项目的场景模型由代码生成。Skeuomo-DSH 是 DeepSeek Harness 的衍生项目，保留其上游 Git 提交历史与版权声明。本仓库由独立维护者维护。
 
 代码采用 [MIT](LICENSE) 许可证，保留上游版权声明。字体、笔顺和材质资源遵循各自许可证，见[书桌资源署名](apps/web/public/study/CREDITS.md)与[第三方软件声明](THIRD_PARTY_NOTICES.md)。

@@ -611,3 +611,14 @@
     animation: none;
   }
 }
+
+/* 档案夹的布面书脊与内页。 */
+.root { border-left: 8px solid var(--dsw-alias-desk-green); border-right: 2px solid var(--dsw-alias-desk-brass-dark); background: var(--dsw-alias-desk-fiber), var(--dsw-specific-sidebar-fill); padding-top: 10px; }
+.logoRow { height: 50px; }
+.brandName { font-family: var(--dsw-alias-desk-serif); font-weight: 400; }
+.buildVersion { display: none; }
+.localBuildTitle { font: 17px/24px var(--dsw-alias-desk-serif); }
+.newSession { border-radius: 2px; box-shadow: 0 2px 3px var(--dsw-alias-border-l2); }
+.panelRow { border-radius: 2px; border-bottom: 0.5px solid var(--dsw-alias-border-l3); }
+.panelActive { box-shadow: inset 3px 0 var(--dsw-alias-desk-green); }
+.footArea { border-top: 0.5px solid var(--dsw-alias-border-l2); padding-top: 8px; }

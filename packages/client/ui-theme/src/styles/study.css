@@ -1,0 +1,80 @@
+/* 书桌的共享材质和语义颜色；纸张在两种配色下均保留暖色。 */
+:root {
+  --dsw-alias-desk-wood: #60412c;
+  --dsw-alias-desk-dark: #231a13;
+  --dsw-alias-desk-shadow: #130b06b3;
+  --dsw-alias-desk-brass: #b79a5e;
+  --dsw-alias-desk-brass-light: #e5d29e;
+  --dsw-alias-desk-brass-dark: #66502d;
+  --dsw-alias-desk-cream: #eadfc2;
+  --dsw-alias-desk-ink: #3f382d;
+  --dsw-alias-desk-green: #244b3b;
+  --dsw-alias-desk-green-light: #578673;
+  --dsw-alias-desk-red: #673730;
+  --dsw-alias-desk-blue: #334551;
+  --dsw-alias-desk-gold: #9e7942;
+  --dsw-alias-desk-glow: #ffda8b;
+  --dsw-alias-desk-led: #e8b175;
+  --dsw-alias-desk-light: #ffedbf44;
+  --dsw-alias-desk-paper-shadow: 0 1px 1px #fff6, 0 3px 0 #c6bca8, 0 6px 0 #ded2b9, -8px 14px 24px #170e0780, 0 28px 60px #170e0740;
+  --dsw-alias-desk-object-shadow: 2px 7px 7px #100a0880, 0 22px 24px #100a084d;
+  --dsw-alias-desk-brass-fill: linear-gradient(110deg, #786034, #d4bd80 25%, #aa8b4a 55%, #e0c994 75%, #91713e);
+  --dsw-alias-desk-serif: 'Iowan Old Style', 'Baskerville', 'Songti SC', 'Noto Serif SC', Georgia, serif;
+  --dsw-alias-desk-woodgrain: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22680%22%20height%3D%221100%22%3E%3Cfilter%20id%3D%22w%22%3E%3CfeTurbulence%20type%3D%22fractalNoise%22%20baseFrequency%3D%22.065%20.0025%22%20numOctaves%3D%223%22%20seed%3D%2224%22/%3E%3CfeColorMatrix%20type%3D%22saturate%22%20values%3D%220%22/%3E%3CfeComponentTransfer%3E%3CfeFuncR%20type%3D%22gamma%22%20amplitude%3D%22.45%22%20exponent%3D%221.2%22%20offset%3D%22.14%22/%3E%3CfeFuncG%20type%3D%22gamma%22%20amplitude%3D%22.29%22%20exponent%3D%221.4%22%20offset%3D%22.065%22/%3E%3CfeFuncB%20type%3D%22gamma%22%20amplitude%3D%22.16%22%20exponent%3D%221.5%22%20offset%3D%22.03%22/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Cpath%20fill%3D%22%235d3b24%22%20d%3D%22M0%200h680v1100H0z%22/%3E%3Cpath%20filter%3D%22url%28%23w%29%22%20opacity%3D%22.85%22%20d%3D%22M0%200h680v1100H0z%22/%3E%3Cfilter%20id%3D%22g%22%3E%3CfeTurbulence%20type%3D%22fractalNoise%22%20baseFrequency%3D%22.38%20.006%22%20numOctaves%3D%222%22%20seed%3D%2217%22%20stitchTiles%3D%22stitch%22/%3E%3CfeColorMatrix%20type%3D%22saturate%22%20values%3D%220%22/%3E%3C/filter%3E%3Cpath%20filter%3D%22url%28%23g%29%22%20opacity%3D%22.14%22%20style%3D%22mix-blend-mode%3Asoft-light%22%20d%3D%22M0%200h680v1100H0z%22/%3E%3C/svg%3E");
+  --dsw-alias-desk-fiber: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22180%22%20height%3D%22180%22%3E%3Cfilter%20id%3D%22p%22%3E%3CfeTurbulence%20type%3D%22fractalNoise%22%20baseFrequency%3D%22.75%22%20numOctaves%3D%223%22%20stitchTiles%3D%22stitch%22/%3E%3CfeColorMatrix%20type%3D%22saturate%22%20values%3D%220%22/%3E%3C/filter%3E%3Cpath%20filter%3D%22url%28%23p%29%22%20opacity%3D%22.14%22%20d%3D%22M0%200h180v180H0z%22/%3E%3C/svg%3E");
+}
+body, body[data-ds-dark-theme] {
+  --dsw-alias-bg-base: #f3eddf;
+  --dsw-alias-bg-layer-1: #f7f1e5;
+  --dsw-alias-bg-layer-2: #ece3d0;
+  --dsw-alias-bg-layer-3: #e8ddc8;
+  --dsw-alias-bg-overlay: #eee5d2;
+  --dsw-alias-label-primary: #39382e;
+  --dsw-alias-label-secondary: #625c4e;
+  --dsw-alias-label-tertiary: #726957;
+  --dsw-alias-label-caption: #84755e;
+  --dsw-alias-label-primary-inverted: #fff7e4;
+  --dsw-alias-label-primary-bluish: #31554c;
+  --dsw-alias-label-primary-foreground: #fff7e4;
+  --dsw-alias-label-dimmed: #928574;
+  --dsw-alias-brand-primary: #34594c;
+  --dsw-alias-brand-text: #34594c;
+  --dsw-alias-state-business-primary: #34594c;
+  --dsw-alias-state-business-tertiary: #dce4d6;
+  --dsw-alias-link: #315e54;
+  --dsw-alias-border-l1: #c3b69c;
+  --dsw-alias-border-l2: #ccbea5;
+  --dsw-alias-border-l3: #d8cdb7;
+  --dsw-alias-border-l4: #ddcfb3;
+  --dsw-alias-interactive-bg-hover: #6b522b14;
+  --dsw-alias-interactive-bg-active: #6b522b24;
+  --dsw-alias-interactive-bg-hover-solid: #e6dbc5;
+  --dsw-alias-button-primary-fill: #34594c;
+  --dsw-alias-button-info-fill: #34594c;
+  --dsw-alias-button-info-hover: #244438;
+  --dsw-alias-button-elevated-fill: #f2e9d5;
+  --dsw-alias-button-floating-hover: #e6d9bd;
+  --dsw-specific-sidebar-fill: #e9dec8;
+  --dsw-specific-input-major: #faf5e9;
+  --dsw-specific-selector: #e7ddc8;
+  --dsw-alias-scrollbar-bg-l1: #c8b99b;
+  --dsw-alias-scrollbar-bg-l2: #b8a88a;
+  --dsw-alias-scrollbar-hover-l1: #ad9977;
+  --dsw-alias-scrollbar-hover-l2: #ad9977;
+  --dsw-specific-sidebar-nav-item-active: #d8ccb1;
+  --dsw-specific-sidebar-nav-item-hover: #e0d4ba;
+  --dsw-specific-sidebar-nav-item-active-accent: #d2ddce;
+  --dsw-elevation-stroke-color: #c3b69c;
+  --dsw-alias-settings-card-fill: #eee4cf;
+  --dsw-alias-settings-card-stroke: #d8cdb7;
+  --dsw-radius-panel: 7px;
+  --dsw-radius-xl: 8px;
+  --dsw-radius-lg: 6px;
+  --dsw-radius-md: 4px;
+  --dsw-radius-sm: 3px;
+  color-scheme: light;
+}
+body[data-ds-dark-theme] {
+  --dsw-alias-desk-wood: #3b2b21;
+  --dsw-alias-desk-light: #ffedbf24;
+}

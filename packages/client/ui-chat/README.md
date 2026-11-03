@@ -16,6 +16,7 @@ File-mention providers receive the viewed Session ID with the closing-turn owner
 
 ## Table of Contents
 
+- [Study interface](#study-interface)
 - [Reference previews](#reference-previews)
 - [Hidden Chat rows](#system-prompt-row)
 - [Command and failure rows](#command-and-failure-rows)
@@ -27,6 +28,13 @@ File-mention providers receive the viewed Session ID with the closing-turn owner
 - [Model Experience](#model-experience)
 - [Known Limitations and Deferred Work](#known-limitations-and-deferred-work)
 - [Dev Note](#dev-note)
+
+-----
+
+<a id="study-interface"></a>
+## Study interface
+
+The `main.study` entry renders Chat text in a three-dimensional notebook and exposes session creation, history, cancellation, model selection, credentials, approvals, and question replies through injected Harness operations. Chinese desk copy is locale-owned; the scene receives resolved labels. The [desk guide](../../../scripts/study-macos/README.md) describes controls and limitations.
 
 -----
 

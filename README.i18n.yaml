@@ -2,33 +2,24 @@
 # section, a hash of its English and Chinese blocks outside code blocks and generated regions.
 # After editing either side, bring the other along and re-record with:
 #   pnpm run verify-translation-pairing --write README.md
-/deepseek-harness:
-  en: f68c4f080ce55ff2
-  zh: 88a76d7f7f0b260e
-/deepseek-harness/developer-preview:
-  en: 4ef4d8a71ac143f0
-  zh: 1bfc3149ba8e5543
-/deepseek-harness/run:
-  en: 4e0248e4c6474fc6
-  zh: eb2fb8d78c7d6bc0
-/deepseek-harness/run/run-from-npm:
-  en: e22005cd42e6cbad
-  zh: 0f536f4208df1d60
-/deepseek-harness/run/run-from-source:
-  en: 819e3f7c144d0d64
-  zh: de815f040975dba7
-/deepseek-harness/community-and-support:
-  en: 20acf6451fdc869b
-  zh: d06246dd019ecef7
-/deepseek-harness/contributing:
-  en: cabc2d3e9f8898bd
-  zh: 83b6d238bae29ce3
-/deepseek-harness/development:
-  en: 803ca2b11b497bed
-  zh: 8b4071eb0e7783ef
-/deepseek-harness/citation:
-  en: 6704e9e5a8d49a91
-  zh: 85c9cdd8d56f8e9d
-/deepseek-harness/license:
-  en: 926995344fc1c72b
-  zh: c92fab5abf85932f
+/skeuomo-dsh:
+  en: b25c3b3b08023923
+  zh: 9267c74b5cde296f
+/skeuomo-dsh/at-the-desk:
+  en: 3dd6c57345015d3c
+  zh: 9e1ed8436a9f802a
+/skeuomo-dsh/quick-start:
+  en: 0d1627a86c19b836
+  zh: 46a3f985c63ea032
+/skeuomo-dsh/quick-start/macos-window:
+  en: 6de2255eec5ac824
+  zh: 83d509833a9918ac
+/skeuomo-dsh/data-and-current-limits:
+  en: a2e964f962a7ad39
+  zh: 79f653ed45e1337e
+/skeuomo-dsh/development:
+  en: 86ce410838b1480d
+  zh: 16dd7e1f30f64fb9
+/skeuomo-dsh/credits-and-license:
+  en: a9ec11a24453e9f4
+  zh: 7123ebfcb3cea0ef

@@ -4,7 +4,7 @@
   flex-direction: column;
   height: 100%;
   min-width: 0;
-  background: var(--dsw-alias-bg-base);
+  background: transparent;
 }
 
 /* 76px with its rule: the height of the Sidebar's tab strip and header row
@@ -547,7 +547,7 @@ button.crumb:hover {
    the tree seat matches active (sticky footer) without a Root remount. */
 .root[data-phase='hero'] .scrollBody,
 .embeddedBody[data-content-phase='hero'] .scrollBody {
-  justify-content: center;
+  justify-content: safe center;
   overflow-y: auto;
 }
 
@@ -556,4 +556,20 @@ button.crumb:hover {
 .root[data-phase='settling'] .composerSeat,
 .embeddedBody[data-content-phase='settling'] .composerSeat {
   visibility: hidden;
+}
+
+/* 手稿从页眉到正文共享纸张底材；正文和输入的滚动职责不变。 */
+.composerHero { flex-shrink: 0; max-width: 740px; padding: 20px 0 38px; }
+.header { margin: 0 12px; padding-left: 14px; padding-right: 20px; }
+.headerBlank { padding-top: 6px; }
+.root[data-phase='hero'] .scrollBody { justify-content: safe center; }
+@media (max-height: 760px) {
+  .composerHero { padding-top: 10px; padding-bottom: 16px; }
+}
+@media (max-width: 650px) {
+  .composerHero { padding-top: 16px; }
+  .root[data-phase='hero'] .scrollBody { justify-content: flex-start; }
+}
+@media (max-height: 900px) {
+  .composerHero { padding-top: 8px; padding-bottom: 12px; }
 }

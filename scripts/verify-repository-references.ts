@@ -49,7 +49,12 @@ export function findRepositoryReferences(
     if (organizationUrl.test(canonicalReferenceText(line).replace(kitRepositoryUrl, ''))) {
       references.push({ file, line: index + 1, kind: 'organization-url' })
     }
-    if ([...line.matchAll(commitCandidate)].some(match => commits.has(match[0].toLowerCase()))) {
+    if ([...line.matchAll(commitCandidate)].some((match) => {
+      // uv 以十进制字节数记录下载大小；它不是提交引用。
+      const downloadSize = file.endsWith('uv.lock') && /^\d+$/.test(match[0])
+        && /\bsize\s*=\s*$/.test(line.slice(0, match.index))
+      return !downloadSize && commits.has(match[0].toLowerCase())
+    })) {
       references.push({ file, line: index + 1, kind: 'commit-hash' })
     }
   }

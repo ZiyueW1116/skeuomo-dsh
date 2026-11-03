@@ -16,6 +16,7 @@ kind: "package-reference"
 
 ## 目录
 
+- [三维书桌](#study-interface)
 - [引用预览](#reference-previews)
 - [Chat 隐藏的行](#system-prompt-row)
 - [指令与失败行](#command-and-failure-rows)
@@ -27,6 +28,13 @@ kind: "package-reference"
 - [模型体验](#model-experience)
 - [已知限制与暂缓事项](#known-limitations-and-deferred-work)
 - [开发备注](#dev-note)
+
+-----
+
+<a id="study-interface"></a>
+## 三维书桌
+
+`main.study` 入口在三维笔记本中呈现 Chat 文本，并通过注入的 Harness 操作提供会话创建、历史翻阅、取消、模型选择、凭据保存、签批和问笺回答。书桌中文文案由语言字典持有，场景接收解析后的标签。[书桌指南](../../../scripts/study-macos/README.zh.md)说明操作方式与限制。
 
 -----
 

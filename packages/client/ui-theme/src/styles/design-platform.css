@@ -406,3 +406,9 @@ html[data-platform='darwin'] body {
 html[data-platform='darwin'] body[data-ds-dark-theme] {
   --dsw-specific-menu: rgba(48, 49, 54, 0.94);
 }
+
+/* 暖色书桌菜单与信纸保持同一材质。 */
+body, body[data-ds-dark-theme] {
+  --dsw-specific-menu: var(--dsw-menu-surface-fill);
+  --dsw-menu-surface-fill: #f2e9d9f2;
+}

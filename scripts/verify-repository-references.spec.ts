@@ -214,3 +214,12 @@ describe('maintained repository reference policy', () => {
       .toEqual([{ file: '.agents/notes/implemented/process/current.md', line: 1, kind: 'organization-url' }])
   })
 })
+
+
+it('接受 uv 下载字节数，同时拒绝相同数字的提交引用', () => {
+  const decimal = ['634', '4383'].join('')
+  const commits = new Set([decimal])
+  expect(findRepositoryReferences('python/sdk/uv.lock', `sdist = { size = ${decimal} }`, commits)).toEqual([])
+  expect(findRepositoryReferences('python/sdk/uv.lock', `revision = "${decimal}"`, commits)).toHaveLength(1)
+  expect(findRepositoryReferences('README.md', `commit ${decimal}`, commits)).toHaveLength(1)
+})

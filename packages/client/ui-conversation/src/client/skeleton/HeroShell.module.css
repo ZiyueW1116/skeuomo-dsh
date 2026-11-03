@@ -6,9 +6,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100%;
+  height: auto;
   min-width: 0;
-  padding: 0 24px;
+  padding: 0 30px;
 }
 
 /* Cap matches the InputBar card. Glow may paint past the sides. */
@@ -23,102 +23,22 @@
   overflow: visible;
 }
 
-/* figma 34:10411: fish + title, gap 10, centered; 26/32 wt500. The preview
-   badge is a product addition outside that source: a mono superscript pill
-   riding the title's top-right. */
-.headline {
-  display: flex;
-  /* Overflow-driven: the fish and the title group are two wrap units sharing
-     one centered line while they fit; squeezed, the fish takes its own line
-     above the group. No breakpoint. */
-  flex-wrap: wrap;
-  column-gap: 10px;
-  /* Wrapped, the fish sits on its own line; more air than the 10px side gap
-     keeps it reading as a mark above the title, not a squeezed inline glyph. */
-  row-gap: 12px;
-  align-items: center;
-  justify-content: center;
-  font-size: 26px;
-  line-height: 32px;
-  font-weight: 500;
-  color: var(--dsw-alias-label-primary);
+
+.letterhead { display: flex; align-items: center; gap: 12px; margin-bottom: 27px; }
+.fishHitbox { display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; border-radius: 50%; corner-shape: round; color: var(--dsw-alias-desk-cream); background: radial-gradient(circle at 35% 25%, var(--dsw-alias-desk-green-light), var(--dsw-alias-desk-green) 65%); box-shadow: inset 0 0 0 3px var(--dsw-alias-desk-green), inset 0 0 0 4px var(--dsw-alias-desk-brass), 1px 3px 5px var(--dsw-alias-border-l2); transform: rotate(-10deg); flex: none; }
+.fish { display: block; color: inherit; }
+.eyebrow { font: 10px/18px var(--ds-font-family-code); color: var(--dsw-alias-label-tertiary); letter-spacing: .12em; }
+.previewBadge { margin-left: auto; padding: 5px 10px; border: 1px solid var(--dsw-alias-desk-red); color: var(--dsw-alias-desk-red); font: 10px/16px var(--dsw-alias-desk-serif); letter-spacing: .12em; transform: rotate(4deg); white-space: nowrap; }
+.headline { display: block; margin: 0; text-align: left; font: 400 clamp(25px, 3vw, 39px)/1.5 var(--dsw-alias-desk-serif); color: var(--dsw-alias-label-primary); letter-spacing: .04em; }
+.subtitle { margin: 4px 0 0; color: var(--dsw-alias-label-secondary); font: 13px/24px var(--dsw-alias-desk-serif); }
+.letterRule { height: 0.5px; background: var(--dsw-alias-border-l2); margin: 22px 0 8px; }
+@media (max-width: 650px) {
+  .letterhead { margin-bottom: 12px; gap: 8px; }
+  .eyebrow { font-size: 8px; letter-spacing: 0; }
+  .previewBadge { font-size: 8px; padding: 3px 5px; }
+  .fishHitbox { width: 38px; height: 38px; }
+  .letterRule { margin-top: 10px; }
 }
-
-/* Title text + badge as one wrap unit so the title never breaks mid-text with
-   the badge stranded beside a fragment. When the badge no longer fits beside
-   the title it wraps to its own centered line below; while both fit, the group
-   is content-sized and centering is a no-op, keeping the superscript snug. */
-.titleGroup {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  /* Superscript sits 7 from the title. */
-  column-gap: 7px;
-  row-gap: 4px;
-  min-width: 0;
-}
-
-.previewBadge {
-  align-self: flex-start;
-  margin-top: 2px;
-  padding: 1px 7px 0;
-  border: 0.5px solid var(--dsw-alias-interactive-bg-hover);
-  border-radius: 999px;
-  corner-shape: round;
-  background: var(--dsw-alias-state-business-tertiary);
-  color: var(--dsw-alias-label-primary-bluish);
-  font-family: var(--ds-font-family-code);
-  font-size: 12px;
-  line-height: 18px;
-  font-weight: 500;
-  white-space: nowrap;
-}
-
-/* Keep hover detection on a stationary box while the mark moves within it;
-   hover rules target the hitbox so a slot-occupant mark swims too. */
-.fishHitbox {
-  display: inline-flex;
-  flex: none;
-  align-items: center;
-  justify-content: center;
-}
-
-/* The swim morph's curves poke slightly past the viewBox edges, so clipping
-   would slice the tail mid-wag. The hero mark stays in the same primary ink
-   as its headline. */
-.fish {
-  display: block;
-  overflow: visible;
-  transform-origin: 50% 60%;
-  color: var(--dsw-alias-label-primary);
-}
-
-/* Hover swim: a slow continuous sway about the body center — the head
-   (left) lifts as the whale rises, then settles back with a small
-   counter-tilt, like treading water. Negative rotation = head up (the head
-   is the left half; origin 50% 60%). */
-@keyframes hero-fish-swim {
-  0%,
-  100% {
-    transform: none;
-  }
-
-  35% {
-    transform: rotate(-4deg) translate(-0.4px, -0.9px);
-  }
-
-  70% {
-    transform: rotate(1.6deg) translate(0.3px, 0.2px);
-  }
-}
-
-@media (hover: hover) and (prefers-reduced-motion: no-preference) {
-  .fishHitbox:hover .fish {
-    animation: hero-fish-swim 1.6s ease-in-out infinite;
-  }
-}
-
 /* Workspace row sits 12px above the input card (figma y80 → y112). */
 .body {
   position: relative;
@@ -229,4 +149,9 @@
   font-size: 12px;
   line-height: 18px;
   color: var(--dsw-alias-state-error-primary);
+}
+@media (max-height: 900px) {
+  .letterhead { margin-bottom: 10px; }
+  .letterRule { margin: 10px 0 4px; }
+  .stack { gap: 8px; }
 }

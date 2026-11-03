@@ -316,6 +316,8 @@ export function mountAssembledApp(options: AssembledBootOptions = {}): Assembled
  * @returns composer inside the Session named by this creation's reply.
  */
 export async function createAssembledSessionComposer(remote: AssembledRemote): Promise<HTMLElement> {
+  const archive = await screen.findByRole('button', { name: 'Session archive 01' }, { timeout: 10_000 })
+  if (archive.getAttribute('aria-expanded') === 'false') fireEvent.click(archive)
   const tree = await screen.findByRole('tree', { name: 'Sessions' }, { timeout: 10_000 })
   const start = tree.querySelector<HTMLButtonElement>('button[aria-label="New session in fixture"]')
   if (start === null) throw new Error('fixture Workspace new-session action missing')

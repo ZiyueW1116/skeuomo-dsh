@@ -1,0 +1,18 @@
+书桌材质来源
+
+胡桃木：Poly Haven / Walnut Veneer
+https://polyhaven.com/a/walnut_veneer
+本地文件：walnut-color.jpg、walnut-normal.jpg、walnut-roughness.jpg
+
+室内环境光：Poly Haven / Poly Haven Studio
+https://polyhaven.com/a/poly_haven_studio
+本地文件：room.hdr
+以上资源采用 CC0；许可证说明：https://polyhaven.com/license
+
+皮革：ambientCG / Leather 026
+https://ambientcg.com/view?id=Leather026
+本地文件：leather-normal.jpg、leather-roughness.jpg
+许可证：CC0，https://docs.ambientcg.com/license/
+
+CC0 1.0 法律文本：https://creativecommons.org/publicdomain/zero/1.0/legalcode
+材质贴图随应用保存在本地，应用运行时不请求这些外部网站。

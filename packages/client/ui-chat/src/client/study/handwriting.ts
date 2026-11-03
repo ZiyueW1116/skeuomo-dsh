@@ -1137,8 +1137,8 @@ export class InkWriter {
       this.point.down = false
       return false
     }
-    let budget = dt * speed,
-      changed = false
+    const budget = dt * speed
+    let changed = false
     while (budget > 0 && this.letter < this.letters.length) {
       if (this.paths.length === 0)
         this.paths = strokesFor(this.letters[this.letter] as Letter)
@@ -1269,14 +1269,14 @@ export class InkWriter {
       }
       this.ctx.restore()
       changed = true
-      budget -= end - this.distance
       this.distance = end
       if (end >= total) {
         this.stroke++
         this.distance = 0
         this.lift = 0.03 + Math.sin(this.stroke * 1.7) ** 2 * 0.018
-        break
       }
+      // 当前笔画已消耗本帧预算；浮点余差不能再次推进同一笔画。
+      break
     }
     if (this.letter >= this.letters.length) {
       this.completed = true

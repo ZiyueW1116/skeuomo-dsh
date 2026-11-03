@@ -1,6 +1,7 @@
 /** 验证 macOS 检查能在无凭据环境运行，并按构建依赖排序。 */
 import { existsSync, readFileSync, readdirSync } from 'node:fs'
 import { resolve } from 'node:path'
+import { runInNewContext } from 'node:vm'
 import { load } from 'js-yaml'
 import { describe, expect, it } from 'vitest'
 
@@ -12,7 +13,7 @@ interface Workflow {
     'runs-on': string
     strategy?: unknown
     permissions?: Record<string, string>
-    steps: Array<{ uses?: string; run?: string; with?: Record<string, unknown> }>
+    steps: Array<{ uses?: string; run?: string; with?: Record<string, unknown>; env?: Record<string, string> }>
   }>
 }
 
@@ -23,6 +24,22 @@ const job = workflow.jobs.macos!
 const commands = job.steps.flatMap(step => step.run ? [step.run] : [])
 
 describe('macOS CI', () => {
+  it('使用受信任的改动前版本检查归档，防止重新封存被改写的历史', () => {
+    const expression = job.steps.find(step => step.run === 'pnpm run doc-sync')?.env?.DSH_ARCHIVE_BASE_REF
+    expect(expression).toBeTypeOf('string')
+    for (const [event, expected] of [
+      [{ pull_request: { base: { sha: 'pull-base' } } }, 'pull-base'],
+      [{ before: 'push-before' }, 'push-before'],
+      [{ before: '0000000000000000000000000000000000000000' }, 'current-head'],
+      [{}, 'current-head'],
+    ] as const) {
+      const baseline: unknown = runInNewContext(expression!.slice(3, -2), {
+        github: { sha: 'current-head', event: { pull_request: { base: { sha: '' } }, before: '', ...event } },
+      }, { timeout: 1000 })
+      expect(baseline).toBe(expected)
+    }
+  })
+
   it('校验 main 推送和外部拉取请求，并取消过期运行', () => {
     expect(workflow.on).toEqual({ push: { branches: ['main'] }, pull_request: null, workflow_dispatch: null })
     expect(workflow.concurrency['cancel-in-progress']).toBe(true)

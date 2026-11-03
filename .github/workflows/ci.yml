@@ -47,6 +47,13 @@ jobs:
         run: pnpm run lint
 
       - name: 检查文档
+        env:
+          NODE_OPTIONS: --max-old-space-size=4096
+          DSH_GATE_CONCURRENCY: '1'
+          DSH_ARCHIVE_BASE_REF: >-
+            ${{ github.event.pull_request.base.sha
+                || (github.event.before != '0000000000000000000000000000000000000000' && github.event.before)
+                || github.sha }}
         run: pnpm run doc-sync
 
       - name: 验证界面与会话交互

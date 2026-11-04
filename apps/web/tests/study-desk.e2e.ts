@@ -1,7 +1,11 @@
 /** 三维书桌的真实浏览器回归：数据读取、草稿、物理控制与笔顺动画。 */
+import { mkdir, writeFile } from 'node:fs/promises'
+import { join } from 'node:path'
 import { chromium } from 'playwright'
+import { startMockLlmServer } from '@deepseek-ai/dsh-llm-mock-server'
 import { expect, it, onTestFinished } from 'vitest'
 import { launchWebScaffold, seedSession, watchConsole } from './scaffold.ts'
+import { withDefaultWeb } from '../../cli/tests/profiles/web/tests/default-web-process.ts'
 import { createChatScrollFixture } from './chat-scroll-fixture.ts'
 
 it('书桌只呈现三维物件，保留会话并逐笔书写', async () => {
@@ -268,3 +272,42 @@ it('缺少凭据时立即在纸面报告失败，不继续显示等待回信', a
   await page.screenshot({ path: '/tmp/study-missing-credential.png' })
   expect(logs.pageErrors).toEqual([])
 }, 60000)
+
+it('书桌向 DeepSeek 发送信纸内容，省略额外的会话日志', async (test) => {
+  const reply = '来信收悉。'
+  const letter = '请回信确认。'
+  const server = await startMockLlmServer({ sequence: ['success'], repeatLast: true, successText: reply })
+  test.onTestFinished(() => server.close())
+  await withDefaultWeb(test, async ({ url, request }) => {
+    const browser = await chromium.launch({ args: ['--use-angle=metal'] })
+    test.onTestFinished(() => browser.close())
+    const page = await browser.newPage({
+      viewport: { width: 1440, height: 1000 },
+      locale: 'zh-CN',
+    })
+    await page.goto(url, { waitUntil: 'load' })
+    await page.getByRole('button', { name: '在左页写下问题' }).click({ timeout: 30000 })
+    await page.getByRole('textbox', { name: '信纸内容' }).fill(letter)
+    await page.keyboard.press('Meta+Enter')
+    await expect.poll(() => page.getByRole('article', { name: '手稿全文' }).textContent(), {
+      timeout: 30000,
+    }).toContain(reply)
+
+    expect(server.requests.map(({ body }) => JSON.stringify(body)).join('\n')).toContain(letter)
+    for (const { body } of server.requests) {
+      expect(body).toHaveProperty('messages')
+      expect(body).not.toHaveProperty('dsh_session_log')
+    }
+    const { client } = await request('roster')
+    expect(client.entries.some(entry => entry.id === '@deepseek-ai/dsh-client-ui-settings-session-log')).toBe(false)
+  }, {
+    prepare: async (root) => {
+      const home = join(root, 'home')
+      await mkdir(home, { recursive: true })
+      await writeFile(join(home, 'cordis.patch.yml'), JSON.stringify([
+        { id: 'llm-deepseek', config: { baseURL: server.baseURL } },
+        { id: 'session-log-deepseek', config: { enabled: true } },
+      ]))
+    },
+  })
+}, 90000)

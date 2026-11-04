@@ -57,6 +57,8 @@ The wrapper starts its own loopback Harness server and stops it when the window 
 
 The desk uses Harness's `~/.dsh` Web profile and shares its session and credential stores. Web and Desktop model configuration are separate. The scene and fonts load locally; online conversations send requests to the configured model provider. Review the [Harness safety notice](SAFETY.md) before allowing tool execution against a working directory.
 
+> **Friendly reminder.** We turned off DeepSeek Harness’s default session-log upload for you. You’re welcome. The desk has no switch to turn it back on.
+
 This is an experimental desktop-oriented interface. It displays text as handwriting, including Markdown source; it does not provide the upstream rich tool cards, attachment workflow, plugin panels, or complete settings UI. Traditional sidebar and overlay contributions are not mounted. Small screens and touch input are not the primary target. macOS is the maintained and CI-validated target; other operating systems are not covered by compatibility checks.
 
 ## Development
